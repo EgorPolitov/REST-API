@@ -2,8 +2,8 @@ import { Router } from "express";
 const loginRouter = Router();
 
 import { loginController } from "../controllers/loginController.js";
-import { validateUser } from "../middleware/validation.js";
+import { validate } from "../utils/validate.js";
 
-loginRouter.post("/", validateUser, loginController.post);
+loginRouter.post("/", validate(["username", "password"]), loginController.post);
 
 export { loginRouter };

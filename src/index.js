@@ -16,3 +16,21 @@ app.use("/", router);
 app.listen(port, () =>
   console.log(`Server started on port ${port}`, new Date())
 );
+
+import mysql from "mysql2";
+
+const connection = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    database: 'my-server-db',
+    password: ""
+});
+
+connection.connect(function (err) {
+    if (err) {
+        return console.error("Ошибка: " + err.message);
+    }
+    else {
+        console.log("Подключение к серверу MySQL успешно установлено");
+    }
+});

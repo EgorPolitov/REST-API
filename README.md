@@ -25,4 +25,6 @@
 
 - https://www.youtube.com/watch?v=Oe421EPjeBE
 - https://github.com/john-smilga/node-express-course/tree/main
-- 
+- https://codevoweb.com/node-express-typeorm-postgresql-rest-api/
+
+- Спросить за jsonwebtoken
