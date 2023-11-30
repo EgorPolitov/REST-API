@@ -30,5 +30,5 @@
 - Спросить за jsonwebtoken
 
 
-# ЛОЛ
+# .
 - https://github.com/john-smilga/node-express-course
