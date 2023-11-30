@@ -2,7 +2,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-23.05";
     systems.url = "github:nix-systems/default";
-    devenv.url = "github:cachix/devenv";
+    devenv.url = "github:cachix/devenv/v0.6.3";
   };
 
   outputs = { self, nixpkgs, devenv, systems, ... }@inputs:
@@ -21,27 +21,26 @@
               services.mysql = {
                 enable = true;
                 package = pkgs.mariadb;
-                initialDatabases = [{ name = "app"; }];
+                initialDatabases = [{ name = "my-server-db"; }];
                 ensureUsers = [
                   {
-                    name = "app";
+                    name = "root";
                     password = "";
-                    ensurePermissions = { "app.*" = "ALL PRIVILEGES"; };
+                    ensurePermissions = { "root.*" = "ALL PRIVILEGES"; };
                   }
                 ];
-                settings.mysqld = {
-                  "sql_require_primary_key" = "on";
+                settings = {
+                  # mysql = {
+                  #   user = "username";
+                  #   password = "test";
+                  # };
+                  mysqld = {
+                    # "sql_require_primary_key" = "on";
+                    "bind_address" = "localhost";
+                  };
                 };
-
               };
-
-              # users.mysql = {
-              #   passwordFile = "/run/secrets/mysql-passwd";
-              #   host = "localhost";
-              # };
-
             }];
-
           };
         });
     };

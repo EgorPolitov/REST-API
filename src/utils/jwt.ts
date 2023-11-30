@@ -1,11 +1,12 @@
 import jwt from 'jsonwebtoken';
+import { jwt_secret } from '../config';
 
-const createJWT = (user) => {
-  const token = jwt.sign(user, process.env.JWT_SECRET);
+const createJWT = (user : any) => {
+  const token : string = jwt.sign(user, jwt_secret);
   return token;
 };
 
-const isTokenValid = (token) => jwt.verify(token, process.env.JWT_SECRET);
+const isTokenValid = (token : string) => jwt.verify(token, jwt_secret);
 
 // const attachCookiesToResponse = ({ res, user, refreshToken }) => {
 //   const accessTokenJWT = createJWT({ payload: { user } });
