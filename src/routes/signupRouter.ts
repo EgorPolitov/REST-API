@@ -2,7 +2,7 @@ import { Router } from "express";
 import { signupController } from "../controllers/signupController";
 import { body } from "express-validator";
 import { db } from '../config';
-import { Users } from '../entity/Users';
+import { Admins } from '../entity/Admins';
 import { checkEmpty } from "../utils/helper";
 
 const signupRouter = Router();
@@ -16,7 +16,7 @@ signupRouter.post("/",
     checkEmpty,
     async (req, res, next) => {
         const username = req.body.username;
-        const isUserExist = await db.getRepository(Users).exist({
+        const isUserExist = await db.getRepository(Admins).exist({
             where: {
                 "username": username
             }

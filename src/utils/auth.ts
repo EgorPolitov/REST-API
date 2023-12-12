@@ -2,7 +2,6 @@ import { NextFunction, Request, Response } from "express";
 import { Tokens } from "../entity/Tokens";
 import { db } from "../config";
 import { isEmpty } from "class-validator";
-import { Users } from "../entity/Users";
 
 const checkAuth = async (req: Request, res: Response, next: NextFunction) => {
     const output = {

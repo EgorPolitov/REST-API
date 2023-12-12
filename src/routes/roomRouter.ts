@@ -14,6 +14,8 @@ roomRouter.post("/",
     checkEmpty,
     checkAuth,
     roomController.post);
-// roomRouter.delete("/*", roomController.delete)
+roomRouter.delete("/:id",
+    checkAuth,
+    roomController.delete);
 
 export { roomRouter };

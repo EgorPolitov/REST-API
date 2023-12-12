@@ -1,13 +1,13 @@
 import { Entity, Column, PrimaryGeneratedColumn } from "typeorm"
 
 @Entity()
-export class Tokens {
+export class Admins {
     @PrimaryGeneratedColumn()
     id: Number
 
     @Column()
-    admins_id: Number
+    username: String
 
     @Column()
-    token: String
+    password: String
 }

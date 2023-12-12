@@ -4,9 +4,7 @@
   "description": "",
   "main": "dist/index.js",
   "scripts": {
-    "1": "clear && tsc && npm run dev",
-    "build": "tsc",
-    "dev": "node ./dist/index.js"
+    "1": "clear && tsc && node ./dist/index.js"
   },
   "author": "",
   "license": "ISC",
