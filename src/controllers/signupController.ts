@@ -1,13 +1,13 @@
 import { Request, Response } from 'express';
 import { db } from '../config';
-import { Users } from '../entity/Users';
+import { Admins } from '../entity/Admins';
 
 class SignupController {
   async post(req: Request, res: Response) {
     const { username, password } = req.body;
 
-    const new_user = await db.getRepository(Users).create({ username, password })
-    const results = await db.getRepository(Users).save(new_user)
+    const new_user = await db.getRepository(Admins).create({ username, password })
+    const results = await db.getRepository(Admins).save(new_user)
 
     res.status(200).send({
       data: {

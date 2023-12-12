@@ -18,19 +18,4 @@ class RoomsController {
   }
 }
 
-// const rooms = {
-//   "list": [
-//     {
-//       "id": 1,
-//       "name": "Назание",
-//       "desc_data": "Описание"
-//     },
-//     {
-//       "id": 2,
-//       "name": "Назание",
-//       "desc_data": "Описание"
-//     }
-//   ]
-// };
-
 export const roomsController = new RoomsController();

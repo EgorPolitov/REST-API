@@ -1,5 +1,5 @@
 import { Request, Response } from 'express'
-import { Users } from "../entity/Users"
+import { Admins } from "../entity/Admins"
 import { db } from "../config"
 import { createJWT } from "../utils/jwt";
 import { Tokens } from '../entity/Tokens';
@@ -9,7 +9,7 @@ class LoginController {
   async post(req: Request, res: Response) {
     const { username, password } = req.body;
 
-    const isUserExist = await db.getRepository(Users).exist({
+    const isUserExist = await db.getRepository(Admins).exist({
       where: {
         "username": username,
         "password": password
@@ -27,7 +27,7 @@ class LoginController {
     } else {
       const jwt_token = createJWT(String((Math.random() * 10000)) + new Date().getTime().toString() + username + new Date().getTime().toString() + password + new Date().getTime().toString());
 
-      const { id } = await db.getRepository(Users).findOne({
+      const { id } = await db.getRepository(Admins).findOne({
         where: {
           "username": username,
           "password": password
@@ -35,7 +35,7 @@ class LoginController {
       });
 
       const new_token = await db.getRepository(Tokens).create({
-        users_id: id,
+        admins_id: id,
         token: jwt_token
       });
       const results = await db.getRepository(Tokens).save(new_token);
