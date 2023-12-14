@@ -3,8 +3,8 @@ import { body } from "express-validator";
 
 const loginRouter = Router();
 
-import { loginController } from "../controllers/loginController.js";
 import { checkEmpty } from "../utils/helper.js";
+import { tokenController } from "../controllers/tokenController.js";
 
 loginRouter.post("/",
     [
@@ -12,6 +12,6 @@ loginRouter.post("/",
         body("password").notEmpty()
     ],
     checkEmpty,
-    loginController.post);
+    tokenController.create);
 
 export { loginRouter };

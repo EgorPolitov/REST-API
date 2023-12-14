@@ -4,12 +4,11 @@
   "description": "",
   "main": "dist/index.js",
   "scripts": {
-    "1": "clear && tsc && node ./dist/index.js"
+    "dev": "clear && tsc && node ./dist/index.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "class-validator": "^0.14.0",
     "config": "^3.3.9",
     "cors": "^2.8.5",
     "cross-env": "^7.0.3",

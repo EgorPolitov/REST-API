@@ -3,7 +3,7 @@ import { Hotels } from "../entity/Hotels.js";
 import { Request, Response } from 'express';
 
 class HotelController {
-  async post(req: Request, res: Response) {
+  async create(req: Request, res: Response) {
     const { name, number } = req.body;
     const hotel_settings = {
       "name": name,
@@ -45,7 +45,7 @@ class HotelController {
     });
   }
 
-  async get(req: Request, res: Response) {
+  async getAll(req: Request, res: Response) {
 
     const results = await db.getRepository(Hotels).find();
     const processd_result = results.map(item => ({
@@ -58,7 +58,7 @@ class HotelController {
     });
   }
 
-  async delete(req: Request, res: Response) {
+  async destroy(req: Request, res: Response) {
     const id: any = req.params.id;
 
     const isHotelExist = await db.getRepository(Hotels).exist({

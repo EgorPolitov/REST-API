@@ -3,7 +3,7 @@ import { db } from '../config';
 import { Rooms } from '../entity/Rooms';
 
 class RoomController {
-  async post(req: Request, res: Response) {
+  async create(req: Request, res: Response) {
     const { name, desc_data } = req.body;
 
     const new_room = await db.getRepository(Rooms).create({
@@ -19,7 +19,7 @@ class RoomController {
     });
   }
 
-  async delete(req: Request, res: Response) {
+  async destroy(req: Request, res: Response) {
     const id: any = req.params.id;
 
     const isRoomExist = await db.getRepository(Rooms).exist({
@@ -42,6 +42,20 @@ class RoomController {
       "data": {
         "message": "Deleted"
       }
+    });
+  }
+
+  async getAll(req: Request, res: Response) {
+
+    const list_rooms = await db.getRepository(Rooms).find({
+      select: ["name", "desc_data"]
+    });
+
+    res.setHeader("content-type", "application/json");
+    res.status(200).send({
+      "data": {
+        "list": list_rooms
+      },
     });
   }
 }
