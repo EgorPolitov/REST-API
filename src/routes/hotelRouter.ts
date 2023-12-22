@@ -13,14 +13,14 @@ hotelRouter.post("/",
         body("number").notEmpty()
     ],
     checkEmpty,
-    hotelController.post);
+    hotelController.create);
 
 hotelRouter.get("/",
-    hotelController.get);
+    hotelController.getAll);
 
 
 hotelRouter.delete("/:id",
-    hotelController.delete);
+    hotelController.destroy);
 
 
 export { hotelRouter };

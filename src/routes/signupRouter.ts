@@ -1,9 +1,9 @@
 import { Router } from "express";
-import { signupController } from "../controllers/signupController";
 import { body } from "express-validator";
 import { db } from '../config';
 import { Admins } from '../entity/Admins';
 import { checkEmpty } from "../utils/helper";
+import { adminController } from "../controllers/adminController";
 
 const signupRouter = Router();
 
@@ -33,7 +33,7 @@ signupRouter.post("/",
         }
         next()
     },
-    signupController.post
+    adminController.create
 );
 
 export { signupRouter };

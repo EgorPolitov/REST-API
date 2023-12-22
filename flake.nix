@@ -14,6 +14,13 @@
           default = devenv.lib.mkShell {
             inherit inputs pkgs;
             modules = [{
+
+              languages = {
+                javascript = {
+                  enable = true;
+                };
+              };
+
               packages = with pkgs; [
                 mariadb
               ];

@@ -1,11 +1,11 @@
 import { Router } from "express";
 const roomsRouter = Router();
 
-import { roomsController } from "../controllers/roomsController";
 import { checkAuth } from "../utils/auth";
+import { roomController } from "../controllers/roomController";
 
 roomsRouter.get("/",
     checkAuth,
-    roomsController.get);
+    roomController.getAll);
 
 export { roomsRouter };

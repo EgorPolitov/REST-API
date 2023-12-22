@@ -1,11 +1,11 @@
 import { Router } from "express";
 const usersinroomRouter = Router();
 
-import { usersinroomController } from "../controllers/usersinroomController";
 import { checkAuth } from "../utils/auth";
+import { clientController } from "../controllers/clientController";
 
 usersinroomRouter.get("/",
     checkAuth,
-    usersinroomController.get);
+    clientController.showInRooms);
 
 export { usersinroomRouter };

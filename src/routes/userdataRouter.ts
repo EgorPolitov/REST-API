@@ -1,18 +1,16 @@
 import { Router } from "express";
 const userdataRouter = Router();
 
-import { userdataController } from "../controllers/userdataController";
 import { checkAuth } from "../utils/auth";
-import { checkEmpty } from "../utils/helper";
-import { body } from "express-validator";
+import { clientController } from "../controllers/clientController";
 
 
 userdataRouter.patch("/:id",
     checkAuth,
-    userdataController.patch);
+    clientController.update);
     
 userdataRouter.delete("/:id",
-    userdataController.delete);
+    clientController.destroy);
 
 export { userdataRouter };
 
